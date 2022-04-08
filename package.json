@@ -1,0 +1,36 @@
+{
+  "name": "journey-interpreter",
+  "homepage": "https://github.com/reelyactive/journey-interpreter/",
+  "author": {
+    "name": "reelyActive",
+    "email": "info@reelyactive.com"
+  },
+  "description": "Interpret an ambient stream of radio decodings as journeys of individual devices, or a group of devices moving together, in the form of ephemeral sessions.  We believe in an open Internet of Things.",
+  "keywords": [
+    "reelyActive",
+    "raddec",
+    "journey",
+    "interpreter"
+  ],
+  "version": "0.1.0",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "main": "./lib/journeyinterpreter.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reelyactive/journey-interpreter.git"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "mocha": "^6.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/reelyactive/journey-interpreter/issues"
+  },
+  "contributors": [
+    { "name": "Jeffrey Dungen" }
+  ],
+  "license": "MIT"
+}
