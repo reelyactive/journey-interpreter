@@ -16,12 +16,17 @@
   "engines": {
     "node": ">=6.0.0"
   },
+  "bin": "./bin/journey-interpreter",
   "main": "./lib/journeyinterpreter.js",
+  "scripts": {
+    "start": "node bin/journey-interpreter"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/reelyactive/journey-interpreter.git"
   },
   "dependencies": {
+    "raddec-relay-udp": "^1.1.0"
   },
   "devDependencies": {
     "mocha": "^6.0.0"

@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+
+const JourneyInterpreter = require('../lib/journeyinterpreter.js');
+
+let interpreter = new JourneyInterpreter();
+
+interpreter.on('session', (session) => { console.log(session); });
