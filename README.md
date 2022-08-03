@@ -4,6 +4,30 @@ journey-interpreter
 Interpret an ambient stream of radio decodings as journeys of individual devices, or a group of devices moving together, in the form of ephemeral sessions.
 
 
+Quick Start
+-----------
+
+The __journey-interpreter__ will listen for UDP [raddec](https://github.com/reelyactive/journey-interpreter) packets on localhost:50001.
+
+```
+const JourneyInterpreter = require('journey-interpreter');
+
+// These are the default options
+let options = {
+    sessionIdentifierLength: 8,
+    rssiThreshold: -50,
+    mixingDelayMilliseconds: 1000,
+    reinitiationHoldoffMilliseconds: 10000,
+    advlibFilters: null,
+    whitelistedDeviceIds: []
+};
+
+let interpreter = new JourneyInterpreter(options);
+
+interpreter.on('session', (session) => { console.log(session); });
+```
+
+
 Session Data
 ------------
 
@@ -23,6 +47,29 @@ The session data has the following form:
       timestamp: 1653123456789
     }
 
+
+Filtering on specific devices
+-----------------------------
+
+It is possible to filter on _specific_ devices that transmit iBeacon or Eddystone-UID packets via the advlibFilters below, respectively:
+
+```
+let options = {
+    advlibFilters: { deviceIds: [ '00112233445566778899aabbccddeeff/0000/0000',
+                                  '00112233445566778899/000000000001' ] }
+};
+```
+
+For devices (such as smartphones) which periodically cycle their advertiser address, it is recommended to additionally whitelist the iBeacon or Eddystone-UID identifier so that the sessionId is unaffected by this cycling:
+
+```
+let options = {
+    advlibFilters: { deviceIds: [ '00112233445566778899aabbccddeeff/0000/0000',
+                                  '00112233445566778899/000000000001' ] },
+    whitelistedDeviceIds: [ '00112233445566778899aabbccddeeff/0000/0000',
+                            '00112233445566778899/000000000001' ]
+};
+```
 
 
 License
