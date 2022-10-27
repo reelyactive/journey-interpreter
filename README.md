@@ -19,7 +19,8 @@ let options = {
     mixingDelayMilliseconds: 1000,
     reinitiationHoldoffMilliseconds: 10000,
     advlibFilters: null,
-    whitelistedDeviceIds: []
+    whitelistedDeviceIds: [],
+    isSessionLoggingEnabled: false
 };
 
 let interpreter = new JourneyInterpreter(options);
